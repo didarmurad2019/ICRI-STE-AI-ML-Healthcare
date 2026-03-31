@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Complete ML Project</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body class="bg-gray-100 p-6">
+
+<h1 class="text-3xl font-bold text-center text-indigo-700 mb-6">
+Complete ML Simulator (Train/Test + Metrics + Regularization)
+</h1>
+
+<div class="grid lg:grid-cols-2 gap-6">
+
+<!-- Controls -->
+<div class="bg-white p-6 rounded-xl shadow">
+
+<h2 class="font-semibold">Model</h2>
+<select id="model" class="border p-2 w-full">
+<option value="logistic">Logistic Regression</option>
+<option value="svm">SVM</option>
+<option value="tree">Decision Tree</option>
+<option value="forest">Random Forest</option>
+</select>
+
+<h2 class="font-semibold mt-4">Regularization</h2>
+<select id="regType" class="border p-2 w-full">
+<option value="none">None</option>
+<option value="l1">L1 (Lasso)</option>
+<option value="l2">L2 (Ridge)</option>
+</select>
+
+<h2 class="font-semibold mt-4">Lambda (λ)</h2>
+<input type="range" min="0" max="2" step="0.1" value="0.5" id="lambda" class="w-full">
+
+<button onclick="run()" 
+class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded w-full">
+Train & Evaluate
+</button>
+
+<div class="mt-4 text-sm">
+
+<p>Train Accuracy: <span id="trainAcc"></span></p>
+<p>Test Accuracy: <span id="testAcc"></span></p>
+
+<p>Precision: <span id="precision"></span></p>
+<p>Recall: <span id="recall"></span></p>
+<p>F1 Score: <span id="f1"></span></p>
+<p>AUC: <span id="auc"></span></p>
+
+</div>
+
+<h2 class="font-semibold mt-4">Confusion Matrix (Test)</h2>
+<div id="confMatrix"></div>
+
+</div>
+
+<!-- Chart -->
+<div class="bg-white p-6 rounded-xl shadow">
+<canvas id="chart"></canvas>
+</div>
+
+</div>
+
+<script>
+
+let chart;
+
+function generateData(n=300){
+
+let data=[];
+for(let i=0;i<n;i++){
+let x=Math.random();
+let y=Math.random();
+let label=(x+y>1)?1:0;
+data.push({x,y,label});
+}
+return data;
+}
+
+function run(){
+
+let model=document.getElementById("model").value;
+let reg=document.getElementById("regType").value;
+let lambda=parseFloat(document.getElementById("lambda").value);
+
+let data=generateData();
+let split=200;
+
+let train=data.slice(0,split);
+let test=data.slice(split);
+
+function predict(p){
+
+let prob;
+
+if(model==="logistic")
+prob=1/(1+Math.exp(-(p.x+p.y-1)));
+
+else if(model==="svm")
+prob=(p.x+p.y-0.8);
+
+else if(model==="tree")
+prob=(p.x>0.5)?0.9:0.1;
+
+else
+prob=(p.x+p.y>1)?0.85:0.15;
+
+// Regularization effect
+if(reg==="l2") prob=prob/(1+lambda);
+if(reg==="l1") prob=Math.max(0,prob-lambda);
+
+return (prob>0.5)?1:0;
+}
+
+function evaluate(dataset){
+
+let TP=0,TN=0,FP=0,FN=0;
+let scores=[];
+
+dataset.forEach(p=>{
+let prob=1/(1+Math.exp(-(p.x+p.y-1)));
+scores.push(prob);
+
+let pred=predict(p);
+
+if(pred===1 && p.label===1) TP++;
+if(pred===0 && p.label===0) TN++;
+if(pred===1 && p.label===0) FP++;
+if(pred===0 && p.label===1) FN++;
+});
+
+let accuracy=(TP+TN)/(TP+TN+FP+FN);
+let precision=TP/(TP+FP||1);
+let recall=TP/(TP+FN||1);
+let f1=2*(precision*recall)/(precision+recall||1);
+let auc=scores.reduce((a,b)=>a+b,0)/scores.length;
+
+return {accuracy,precision,recall,f1,auc,TP,TN,FP,FN};
+}
+
+let trainResult=evaluate(train);
+let testResult=evaluate(test);
+
+trainAcc.innerText=(trainResult.accuracy*100).toFixed(2)+"%";
+testAcc.innerText=(testResult.accuracy*100).toFixed(2)+"%";
+
+precision.innerText=testResult.precision.toFixed(3);
+recall.innerText=testResult.recall.toFixed(3);
+f1.innerText=testResult.f1.toFixed(3);
+auc.innerText=testResult.auc.toFixed(3);
+
+confMatrix.innerHTML=`
+<table class="border">
+<tr><td></td><td>Pred 0</td><td>Pred 1</td></tr>
+<tr><td>Actual 0</td><td>${testResult.TN}</td><td>${testResult.FP}</td></tr>
+<tr><td>Actual 1</td><td>${testResult.FN}</td><td>${testResult.TP}</td></tr>
+</table>
+`;
+
+if(chart) chart.destroy();
+
+chart=new Chart(document.getElementById("chart"),{
+type:'scatter',
+data:{
+datasets:[
+{
+label:"Training Data",
+data:train,
+backgroundColor:"red"
+},
+{
+label:"Testing Data",
+data:test,
+backgroundColor:"green"
+}
+]
+},
+options:{
+scales:{
+x:{type:'linear'},
+y:{type:'linear'}
+}
+}
+});
+
+}
+
+run();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Overfitting vs Regularization Simulator</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjs@11.6.0/lib/browser/math.js"></script>
+
+</head>
+
+<body class="bg-gray-100 p-6">
+
+<h1 class="text-3xl font-bold text-center text-indigo-700 mb-6">
+Overfitting vs Underfitting  
+<br>
+L1 (Lasso) vs L2 (Ridge)
+</h1>
+
+<div class="grid lg:grid-cols-2 gap-6">
+
+<!-- Controls -->
+<div class="bg-white p-6 rounded-xl shadow">
+
+<label class="font-semibold">Model Complexity (Degree)</label>
+<input type="range" min="1" max="10" value="2" id="degree" class="w-full">
+
+<label class="font-semibold mt-4 block">Noise Level</label>
+<input type="range" min="0" max="1" step="0.05" value="0.3" id="noise" class="w-full">
+
+<label class="font-semibold mt-4 block">Regularization λ</label>
+<input type="range" min="0" max="2" step="0.1" value="0.5" id="lambda" class="w-full">
+
+<label class="font-semibold mt-4 block">Regularization Type</label>
+<select id="regType" class="border p-2 rounded w-full">
+<option value="none">None</option>
+<option value="l1">L1 (Lasso)</option>
+<option value="l2">L2 (Ridge)</option>
+</select>
+
+<button onclick="updateModel()" 
+class="mt-6 bg-indigo-600 text-white px-4 py-2 rounded w-full">
+Run Simulation
+</button>
+
+<div class="mt-4">
+<p>Training Error: <span id="trainError"></span></p>
+<p>Test Error: <span id="testError"></span></p>
+</div>
+
+</div>
+
+<!-- Chart -->
+<div class="bg-white p-6 rounded-xl shadow">
+<canvas id="chart"></canvas>
+</div>
+
+</div>
+
+<script>
+
+let chart;
+
+function generateData(n=60, noise=0.3){
+let x=[], y=[];
+for(let i=0;i<n;i++){
+let xi=-1+2*i/(n-1);
+let trueY=1+2*xi-1.5*Math.pow(xi,2);
+let noisy=trueY+noise*(Math.random()-0.5)*2;
+x.push(xi);
+y.push(noisy);
+}
+return {x,y};
+}
+
+function features(x, degree){
+return x.map(xi=>{
+let row=[];
+for(let d=0; d<=degree; d++){
+row.push(Math.pow(xi,d));
+}
+return row;
+});
+}
+
+function fit(X,y,lambda,type){
+let Xt=math.transpose(X);
+let XtX=math.multiply(Xt,X);
+let size=XtX.length;
+
+let reg=math.zeros(size,size)._data;
+
+if(type==="l2"){
+for(let i=0;i<size;i++){
+reg[i][i]=lambda;
+}
+}
+
+let XtX_reg=math.add(XtX,reg);
+let XtY=math.multiply(Xt,y);
+
+let w=math.lusolve(XtX_reg,XtY);
+return w.map(v=>v[0]);
+}
+
+function predict(X,w){
+return X.map(row=>
+row.reduce((sum,val,i)=>sum+val*w[i],0)
+);
+}
+
+function mse(yTrue,yPred){
+let sum=0;
+for(let i=0;i<yTrue.length;i++){
+sum+=Math.pow(yTrue[i]-yPred[i],2);
+}
+return sum/yTrue.length;
+}
+
+function updateModel(){
+
+let degree=parseInt(document.getElementById("degree").value);
+let noise=parseFloat(document.getElementById("noise").value);
+let lambda=parseFloat(document.getElementById("lambda").value);
+let regType=document.getElementById("regType").value;
+
+let {x,y}=generateData(60,noise);
+
+let split=40;
+let trainX=x.slice(0,split);
+let trainY=y.slice(0,split);
+let testX=x.slice(split);
+let testY=y.slice(split);
+
+let Xtrain=features(trainX,degree);
+let Xtest=features(testX,degree);
+
+let weights=fit(Xtrain,trainY,lambda,regType);
+
+let trainPred=predict(Xtrain,weights);
+let testPred=predict(Xtest,weights);
+
+document.getElementById("trainError").innerText=
+mse(trainY,trainPred).toFixed(4);
+
+document.getElementById("testError").innerText=
+mse(testY,testPred).toFixed(4);
+
+let lineX=[], lineY=[];
+for(let i=0;i<100;i++){
+let xi=-1+2*i/99;
+lineX.push(xi);
+let pred=predict([features([xi],degree)[0]],weights)[0];
+lineY.push(pred);
+}
+
+if(chart) chart.destroy();
+
+chart=new Chart(document.getElementById("chart"),{
+type:'scatter',
+data:{
+datasets:[
+{
+label:"Training Data",
+data:trainX.map((v,i)=>({x:v,y:trainY[i]})),
+backgroundColor:"red"
+},
+{
+label:"Test Data",
+data:testX.map((v,i)=>({x:v,y:testY[i]})),
+backgroundColor:"green"
+},
+{
+label:"Model",
+data:lineX.map((v,i)=>({x:v,y:lineY[i]})),
+type:"line",
+borderColor:"blue",
+fill:false
+}
+]
+},
+options:{
+responsive:true,
+scales:{
+x:{type:'linear'},
+y:{}
+}
+}
+});
+
+}
+
+updateModel();
+
+</script>
+
+</body>
+</html>
