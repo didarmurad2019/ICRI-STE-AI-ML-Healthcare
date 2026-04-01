@@ -1,4 +1,3 @@
-# AI Clinical DSS
 # Project-I (Blood Sugar Risk)-Prototype
 Medical Terminology Reference Guide: AI Blood Sugar Risk Simulator
 
