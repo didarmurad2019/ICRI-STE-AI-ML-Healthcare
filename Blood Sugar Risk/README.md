@@ -145,12 +145,13 @@ Definition: A standardized table of reference values (thresholds) used to define
 4.4. Confidence (AI Consensus)
 Definition: A quantitative measure (0–100%) of the AI ensemble's certainty in its prediction. Higher confidence scores indicate that multiple models strongly agree on the risk category.
 
-Note: This document is intended for educational and research use within the ICRI-STE Open Science AI/ML Lab. Clinical decisions should always be validated by a qualified healthcare professional.
-# 4. Interactive demo 
+Note: This document is intended for educational and research use within the ICRI-STE Open Science AI/ML Lab. Clinical decisions should always be validated by a qualified healthcare professional. 
 
-See Blood sugar Risk Simulator html file
-
-# 5. Laboratory work 
+# 4. Laboratory work 
 
 End-to-end Python development from scratch
+
+# 5. Interactive demo 
+
+See our youtube chanel presentation
 
