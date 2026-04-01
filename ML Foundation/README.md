@@ -1,4 +1,4 @@
-# Simulator basic idea of Overfitting and Underfitting along with Regularization methods
+# Demo via simulator: Basic idea of Overfitting and Underfitting along with Regularization methods
 
 1. Overfitting
 
@@ -30,12 +30,7 @@ Shrinks coefficients smoothly
 
 More stable model
 
-# Interactive Demo
-file:///C:/Users/Digi%20Laptop/Downloads/Simulator_Overfitting%20vs.%20Underfitting_L1%20(Lasso)-L2%20(Ridge)-regularization_basic.html
- 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Interactive Machine Learning simulator.
+# Interactive Demo via simulation on traditional Machine Learning.
 
 It demonstrates Train–Test data splitting, multiple classification models (Logistic Regression, SVM, Decision Tree, Random Forest), 
 
