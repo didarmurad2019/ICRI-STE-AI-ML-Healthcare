@@ -1,0 +1,13 @@
+Master these 10 operations. Level up instantly.
+Here are the operations I use almost daily:
+
+• 𝗟𝗼𝗮𝗱 𝗱𝗮𝘁𝗮 → pd.read_csv()
+• 𝗜𝗻𝘀𝗽𝗲𝗰𝘁 𝗾𝘂𝗶𝗰𝗸𝗹𝘆 → .head(), .info(), .describe()
+• 𝗦𝗲𝗹𝗲𝗰𝘁 𝗰𝗼𝗹𝘂𝗺𝗻𝘀 → df[["col1","col2"]]
+• 𝗙𝗶𝗹𝘁𝗲𝗿 𝗿𝗼𝘄𝘀 → df[df["col"] > value]
+• 𝗚𝗿𝗼𝘂𝗽 & 𝗮𝗴𝗴𝗿𝗲𝗴𝗮𝘁𝗲 → .groupby().agg()
+• 𝗖𝗿𝗲𝗮𝘁𝗲 𝗳𝗲𝗮𝘁𝘂𝗿𝗲𝘀 → df["new"] = expression
+• 𝗠𝗲𝗿𝗴𝗲 𝗱𝗮𝘁𝗮𝘀𝗲𝘁𝘀 → pd.merge()
+• 𝗛𝗮𝗻𝗱𝗹𝗲 𝗺𝗶𝘀𝘀𝗶𝗻𝗴 𝘃𝗮𝗹𝘂𝗲𝘀 → .isna(), .fillna()
+• 𝗦𝗼𝗿𝘁 𝗿𝗲𝘀𝘂𝗹𝘁𝘀 → .sort_values()
+• 𝗘𝘅𝗽𝗼𝗿𝘁 𝗰𝗹𝗲𝗮𝗻 𝗱𝗮𝘁𝗮 → .to_csv() or .to_excel()
