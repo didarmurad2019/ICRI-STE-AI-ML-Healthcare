@@ -150,6 +150,7 @@ Development & utilities
 uv add ipykernel notebook tqdm
 <br>
 uv run jupyter lab
+<br>
 # Option-III: Using Conda (Anaconda or Miniconda)🧪
 <br>
 If you prefer not to use uv or run into any issues, Conda is a reliable and widely-used alternative for managing Python environments and packages.
