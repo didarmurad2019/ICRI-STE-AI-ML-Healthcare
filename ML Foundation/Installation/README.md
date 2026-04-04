@@ -19,7 +19,7 @@ This will open JupyterLab in your default web browser.
 The terminal will show a URL like http://localhost:8888/lab.
 
 # Option-II
-# Python Setup Tips🐍
+# Python Setup Tips
 <br>
 If You’re Using Google Colab
 <br>
@@ -29,18 +29,18 @@ If you're running your code on Google Colab (https://colab.research.google.com/)
 <br>
 You can skip the rest of this guide if you're using Colab.
 <br>
-🖥️ For Your Local Machine (Laptop/Desktop)
+For Your Local Machine (Laptop/Desktop)
 <br>
 Here’s how you can manage Python and install packages on your own computer.
 <br>
 I’ve used Conda (https://colab.research.google.com/) and pip (https://pypi.org/project/pip/), for a long time, but now I recommend a new tool called uv (https://github.com/astral-sh/uv). It's faster and smarter when it comes to installing Python packages and handling dependencies.
 <br>
-✅ Best Way in 2025: Use uv
+Best Way in 2025: Use uv
 <br>
 Try Option (uv) first — it's modern and fast. If you run into trouble, you can try Option 2 (Conda) instead.
 <br>
 
-# Using uv🧰 
+# Using uv
 <br>
 Let’s go through the steps to set up Python and install packages using uv.
 <br>
@@ -68,9 +68,9 @@ For example, if the latest is Python 3.15, go with 3.13 or 3.12. This makes thin
 Windows Users:
 <br>
 Download and run the Python installer from the official website:
-🔗 https://www.python.org/downloads/
+https://www.python.org/downloads/
 <br>
-🐍 Create a Virtual Environment (Highly Recommended)
+Create a Virtual Environment (Highly Recommended)
 Installing packages in a virtual environment keeps your system clean and avoids interfering with system-wide packages.
 <br>
 Step-by-step:
@@ -100,7 +100,7 @@ or
 <br>
 source .venv/Scripts/activate
 <br>
-🔁 Important Reminder:
+Important Reminder:
 <br>
 You need to activate your virtual environment every time you open a new terminal or restart your computer.
 <br>
@@ -156,7 +156,7 @@ uv run jupyter lab
 <br>
 If you prefer not to use uv or run into any issues, Conda is a reliable and widely-used alternative for managing Python environments and packages.
 <br>
-🐍 What is Conda?
+What is Conda?
 Conda is a package and environment manager that makes it easy to:
 <br>
 Create isolated environments for different projects
@@ -169,13 +169,13 @@ You can install Conda by downloading either:
 <br>
 Anaconda (comes with many scientific packages)
 <br>
-🔗 https://www.anaconda.com/products/distribution
+https://www.anaconda.com/products/distribution
 <br>
 Miniconda (lightweight version, recommended if you want to install only what you need)
 <br>
-🔗 https://docs.conda.io/en/latest/miniconda.html
+https://docs.conda.io/en/latest/miniconda.html
 <br>
-🔧 Steps to Set Up Python Using Conda
+Steps to Set Up Python Using Conda
 <br>
 Step 1: Install Miniconda or Anaconda
 <br>
@@ -220,16 +220,16 @@ conda activate myenv
 
 | Feature / Task                        | `uv` (Modern)                        | `conda` (Traditional)                     |
 | ------------------------------------- | ------------------------------------ | ----------------------------------------- |
-| 🐍 Python Installation                | External (use python.org or system)  | Built-in: installs Python with env        |
-| 📦 Package Manager                    | Uses `pip` under the hood            | Uses `conda` or `pip`                     |
-| 🧪 Environment Creation               | `uv venv --python=python3.10`        | `conda create -n env python=3.10`         |
-| 🚀 Environment Activation             | `source .venv/bin/activate` (Unix)   | `conda activate env`                      |
-| ⚡ Speed                               | Faster installs, smarter resolver    | Slower, but stable                        |
-| 🌍 Cross-platform Support             | Yes (uses virtualenv under the hood) | Yes (very mature)                         |
-| 🧠 Learning Curve                     | Low for `pip` users                  | Very beginner-friendly                    |
-| 🔄 Reproducibility (lock files, etc.) | Built-in via `uv` (advanced users)   | Needs `conda-lock` or manual tracking     |
-| 🔌 Integration with Other Tools       | Compatible with `pip`, `venv`, etc.  | Great for data science tools like Jupyter |
-| 🔧 Python Version Flexibility         | Python must be installed separately  | Python version bundled with env creation  |
+| Python Installation                   | External (use python.org or system)  | Built-in: installs Python with env        |
+| Package Manager                       | Uses `pip` under the hood            | Uses `conda` or `pip`                     |
+| Environment Creation                  | `uv venv --python=python3.10`        | `conda create -n env python=3.10`         |
+| Environment Activation                | `source .venv/bin/activate` (Unix)   | `conda activate env`                      |
+| Speed                                 | Faster installs, smarter resolver    | Slower, but stable                        |
+| Cross-platform Support                | Yes (uses virtualenv under the hood) | Yes (very mature)                         |
+| Learning Curve                        | Low for `pip` users                  | Very beginner-friendly                    |
+| Reproducibility (lock files, etc.)    | Built-in via `uv` (advanced users)   | Needs `conda-lock` or manual tracking     |
+| Integration with Other Tools          | Compatible with `pip`, `venv`, etc.  | Great for data science tools like Jupyter |
+| Python Version Flexibility            | Python must be installed separately  | Python version bundled with env creation  |
 
 <br>
 Which One Should You Use?
@@ -237,10 +237,10 @@ Which One Should You Use?
 
 | Your Situation                                          | Recommended Tool |
 | ------------------------------------------------------- | ---------------- |
-| 🆕 Beginner or prefer easy setup                        | **Conda**        |
-| ⚡ Want faster installs, modern tools                    | **uv**           |
-| 🧪 Need precise Python versioning, system compatibility | **Conda**        |
-| 📦 Already familiar with pip/venv                       | **uv**           |
+| Beginner or prefer easy setup                           | **Conda**        |
+| Want faster installs, modern tools                      | **uv**           |
+| Need precise Python versioning, system compatibility    | **Conda**        |
+| Already familiar with pip/venv                          | **uv**           |
 
 Browser will open automatically:
 http://localhost:8888/lab
