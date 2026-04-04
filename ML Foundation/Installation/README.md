@@ -21,7 +21,7 @@ The terminal will show a URL like http://localhost:8888/lab.
 # Option-II
 # Python Setup Tips🐍
 <br>
-💡 If You’re Using Google Colab
+If You’re Using Google Colab
 <br>
 If you're running your code on Google Colab (https://colab.research.google.com/), just add this line at the top of your notebook:
 <br>
@@ -48,7 +48,7 @@ Note: uv works like pip, so if you’ve used pip before, this will feel familiar
 <br>
 There are also more advanced uv features, like using uv add, but we’ll stick with the basics here.
 <br>
-1️⃣ Install Python (If You Don't Have It Yet)
+Install Python (If You Don't Have It Yet)
 <br>
 If you've never installed Python manually, it’s a good idea to do it now. This avoids possible issues with your system’s built-in Python.
 <br>
@@ -62,7 +62,7 @@ If not, try this command too:
 <br>
 python3 --version
 <br>
-👉 Tip: For best results, use a Python version that’s about 2 versions behind the latest.
+Tip: For best results, use a Python version that’s about 2 versions behind the latest.
 For example, if the latest is Python 3.15, go with 3.13 or 3.12. This makes things like PyTorch work better.
 <br>
 Windows Users:
@@ -70,7 +70,7 @@ Windows Users:
 Download and run the Python installer from the official website:
 🔗 https://www.python.org/downloads/
 <br>
-🐍 2️⃣ Create a Virtual Environment (Highly Recommended)
+🐍 Create a Virtual Environment (Highly Recommended)
 Installing packages in a virtual environment keeps your system clean and avoids interfering with system-wide packages.
 <br>
 Step-by-step:
@@ -151,7 +151,8 @@ uv add ipykernel notebook tqdm
 <br>
 uv run jupyter lab
 <br>
-# Option-III: Using Conda (Anaconda or Miniconda)🧪
+
+# Option-III: Using Conda (Anaconda or Miniconda)
 <br>
 If you prefer not to use uv or run into any issues, Conda is a reliable and widely-used alternative for managing Python environments and packages.
 <br>
@@ -176,13 +177,13 @@ Miniconda (lightweight version, recommended if you want to install only what you
 <br>
 🔧 Steps to Set Up Python Using Conda
 <br>
-✅ Step 1: Install Miniconda or Anaconda
+Step 1: Install Miniconda or Anaconda
 <br>
 Download and run the installer for your operating system.
 <br>
 During setup, check the box that says "Add Conda to PATH" if available.
 <br>
-🧪 Step 2: Create a Conda Environment
+Step 2: Create a Conda Environment
 <br>
 In your terminal (VS Code or system terminal), run:
 <br>
@@ -190,7 +191,7 @@ conda create -n myenv python=3.10
 <br>
 Replace myenv with whatever name you want for your environment.
 <br>
-🚀 Step 3: Activate the Environment
+Step 3: Activate the Environment
 <br>
 Once created, activate it like this:
 <br>
@@ -198,7 +199,7 @@ conda activate myenv
 <br>
 You’ll now see the environment name in your terminal, showing you’re inside the environment.
 <br>
-📦 Step 4: Install Your Packages
+Step 4: Install Your Packages
 <br>
 Now you can install packages using either:
 <br>
@@ -208,7 +209,7 @@ Or if you prefer pip, it also works inside Conda environments:
 <br>
 pip install torch transformers
 <br>
-🔁 Reminder:
+Reminder:
 <br>
 Every time you open a new terminal or VS Code session, don’t forget to activate your environment again:
 <br>
@@ -231,7 +232,7 @@ conda activate myenv
 | 🔧 Python Version Flexibility         | Python must be installed separately  | Python version bundled with env creation  |
 
 <br>
-✅ Which One Should You Use?
+Which One Should You Use?
 <br>
 
 | Your Situation                                          | Recommended Tool |
