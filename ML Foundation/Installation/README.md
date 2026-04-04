@@ -110,7 +110,46 @@ source .venv/bin/activate
 <br>
 (or the correct command for your OS) inside your project folder to get back to work.
 <br>
-
+uv run python
+<br>
+uv python list
+<br>
+See for example: uv python install 3.10 3.11 3.12
+<br>
+Install your desired version by same command as uv python install 3.13 3.14 3.15
+<br>
+Install basic ML requirement like 
+uv add numpy pandas matplotlib seaborn scikit-learn jupyterlab
+<br>
+may require additional as pyproject.toml. 
+<br>
+Please use command uv init
+<br>
+Now install basic ML packages 
+<br>
+Add deep learning frameworks (optional but common), PyTorch (recommended for flexibility)
+<br> 
+uv add torch torchvision torchaudio
+<br>
+OR TensorFlow
+<br>
+uv add tensorflow
+<br>
+Note, Most people pick one, not both.
+<br>
+Extra useful ML tools
+<br>
+uv add scipy statsmodels xgboost lightgbm
+<br>
+NLP & transformers (optional)
+<br>
+uv add transformers datasets
+<br>
+Development & utilities
+<br>
+uv add ipykernel notebook tqdm
+<br>
+uv run jupyter lab
 # Option-III: Using Conda (Anaconda or Miniconda)🧪
 <br>
 If you prefer not to use uv or run into any issues, Conda is a reliable and widely-used alternative for managing Python environments and packages.
