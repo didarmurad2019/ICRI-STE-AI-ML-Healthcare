@@ -4,81 +4,81 @@
 Step-1: Make sure Python and pip are installed, Python in your Local computer
 Any version suggestion download 1-2 old version (https://www.python.org/downloads/)
 Just for check go through 
-
-
+<br>
 command: python --version or python3 --version
-
+<br>
 command: pip --version
-
+<br>
 If these commands fail, you need to install Python first: (https://www.python.org/downloads/)
 Install pip Using ensurepip (Recommended), 
-
+<br>
 command: python -m ensurepip --upgrade
-=======
+<br>
 python --version or python3 --version
-
+<br>
 pip --version
-
+<br>
 If these commands fail, you need to install Python first: (https://www.python.org/downloads/)
-
+<br>
 Install pip Using ensurepip (Recommended), 
-
+<br>
 command: python -m ensurepip --upgrade
-
+<br>
 After that upgrade pip, 
-
+<br>
 command: python -m pip install --upgrade pip
 
 
 Step-2:
 
 1. Initialize Project 
-
+<br>
 Recommendation move from C drive to safeside drives like D or E or F 
-
+<br>
 Use commad as F: 
-
+<br>
 then make directory of your choice, for example my case 
-
+<br>
 mkdir my_project
-
+<br>
 Then change in diectory, using command as 
-
+<br>
 cd my_project
-
+<br>
 Then inside your project as my_project 
-
+<br>
 2. Create Virtual Environment
-
+<br>
 Noted. The built-in venv module is recommended for managing virtual environments with pip, which is usually included with Python installation. 
 If necessary, pip can be installed separately. 
-
+<br>
 Use command: python -m venv myenv
-
-2. Activate Virtual Environment
-
+<br>
+3. Activate Virtual Environment
+<br>
 On Windows
-
+<br>
 command: myenv\Scripts\activate
-
+<br>
 On Linux / Mac
-
+<br>
 command: source myenv/bin/activate
-
+<br>
 You’ll see (myenv) in terminal = environment active
-
-
-3. Install Required Packages
-
+<br>
+4. Install Required Packages
+<br>
+Such as 
+<br>
 Use command: 
-
+<br>
 pip install numpy pandas scikit-learn jupyter jupyterlab
-
-4. Save Dependencies
-
+<br>
+5. Save Dependencies
+<br>
 Use command: pip freeze > requirements.txt
-
-5. Start Working (Jupyter Notebook or Jupyterlab)
+<br>
+6. Start Working (Jupyter Notebook or Jupyterlab)
 
 Use command: jupyter notebook  
 
@@ -95,8 +95,7 @@ If You’re Using Google Colab
 <br>
 If you're running your code on Google Colab (https://colab.research.google.com/), just add this line at the top of your notebook:
 <br>
-!pip install uv or pip install uv
-<br>
+
 You can skip the rest of this guide if you're using Colab.
 <br>
 For Your Local Machine (Laptop/Desktop)
@@ -111,7 +110,6 @@ Try Option (uv) first — it's modern and fast. If you run into trouble, you can
 <br>
 
 # Using uv
-<br>
 Let’s go through the steps to set up Python and install packages using uv.
 <br>
 Note: uv works like pip, so if you’ve used pip before, this will feel familiar.
@@ -124,14 +122,12 @@ If you've never installed Python manually, it’s a good idea to do it now. This
 <br>
 Even if you already have Python, check the version by running this command in your terminal:
 <br>
+
 python --version
 <br>
 If it shows Python 3.10 or newer, you’re good to go.
 <br>
-If not, try this command too:
-<br>
-python3 --version
-<br>
+
 Tip: For best results, use a Python version that’s about 2 versions behind the latest.
 For example, if the latest is Python 3.15, go with 3.13 or 3.12. This makes things like PyTorch work better.
 <br>
@@ -143,6 +139,7 @@ https://www.python.org/downloads/
 Create a Virtual Environment (Highly Recommended)
 Installing packages in a virtual environment keeps your system clean and avoids interfering with system-wide packages.
 <br>
+
 Step-by-step:
 <br>
 1. Install uv:
