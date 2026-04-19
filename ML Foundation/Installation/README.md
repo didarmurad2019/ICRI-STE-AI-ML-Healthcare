@@ -1,6 +1,5 @@
 # My recommendation on initail phase installation and python packages manager 
 # Option-I
-
 Step-1: Make sure Python and pip are installed, Python in your Local computer
 Any version suggestion download 1-2 old version (https://www.python.org/downloads/)
 Just for check go through 
@@ -78,13 +77,13 @@ pip install numpy pandas scikit-learn jupyter jupyterlab
 Use command: pip freeze > requirements.txt
 <br>
 6. Start Working (Jupyter Notebook or Jupyterlab)
-
+<br>
 Use command: jupyter notebook  
-
+<br>
 Use command:  jupyter lab
-
+<br>
 This will open jupyter notebook or JupyterLab in your default web browser.
-
+<br>
 The terminal will show a URL like http://localhost:8888/lab.
 
 # Option-II (modern faster alternative)
@@ -94,7 +93,6 @@ If You’re Using Google Colab
 <br>
 If you're running your code on Google Colab (https://colab.research.google.com/), just add this line at the top of your notebook:
 <br>
-
 You can skip the rest of this guide if you're using Colab.
 <br>
 For Your Local Machine (Laptop/Desktop)
@@ -121,12 +119,12 @@ If you've never installed Python manually, it’s a good idea to do it now. This
 <br>
 Even if you already have Python, check the version by running this command in your terminal:
 <br>
-
-python --version
+Just check your python 
+<br>
+command: python --version
 <br>
 If it shows Python 3.10 or newer, you’re good to go.
 <br>
-
 Tip: For best results, use a Python version that’s about 2 versions behind the latest.
 For example, if the latest is Python 3.15, go with 3.13 or 3.12. This makes things like PyTorch work better.
 <br>
@@ -138,7 +136,6 @@ https://www.python.org/downloads/
 Create a Virtual Environment (Highly Recommended)
 Installing packages in a virtual environment keeps your system clean and avoids interfering with system-wide packages.
 <br>
-
 Step-by-step:
 <br>
 1. Install uv:
@@ -218,7 +215,7 @@ uv add ipykernel notebook tqdm
 uv run jupyter lab
 <br>
 
-# Option-III: Using Conda (Anaconda or Miniconda)
+# Option-III: Using Conda (Anaconda or Miniconda)(Traditional way)
 <br>
 If you prefer not to use uv or run into any issues, Conda is a reliable and widely-used alternative for managing Python environments and packages.
 <br>
