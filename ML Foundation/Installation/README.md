@@ -31,17 +31,23 @@ Step-2:
 <br>
 1. Initialize Project 
 <br>
+If you are using your computer, you may use Power shell or Command prompt 
+<br>
 Recommendation move from C drive to safeside drives like D or E or F 
 <br>
 Use commad as F: 
 <br>
 then make directory of your choice, for example my case 
 <br>
-mkdir my_project
+command: mkdir my_project
 <br>
 Then change in diectory, using command as 
 <br>
-cd my_project
+command: cd my_project
+<br>
+To back command: cd..
+<br>
+To explore the directory, if you are using power shell use command: ls & if using command prompt use command: dir 
 <br>
 Then inside your project as my_project 
 <br>
@@ -85,6 +91,8 @@ Use command:  jupyter lab
 This will open jupyter notebook or JupyterLab in your default web browser.
 <br>
 The terminal will show a URL like http://localhost:8888/lab.
+
+
 
 # Option-II (modern faster alternative)
 # Python Setup Tips
