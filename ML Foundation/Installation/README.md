@@ -27,10 +27,9 @@ command: python -m ensurepip --upgrade
 After that upgrade pip, 
 <br>
 command: python -m pip install --upgrade pip
-
-
+<br>
 Step-2:
-
+<br>
 1. Initialize Project 
 <br>
 Recommendation move from C drive to safeside drives like D or E or F 
