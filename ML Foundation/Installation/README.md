@@ -76,7 +76,23 @@ Such as
 <br>
 Use command: 
 <br>
-pip install numpy pandas scikit-learn jupyter jupyterlab
+pip install numpy pandas scikit-learn jupyter jupyterlab matplotlib seaborn 
+<br>
+If you want to know about this packages, If installed, it will display version, location, and details. 
+<br>
+Use command: pip show package name, like
+<br>
+Use command: pip show matplotlib, pip show numpy, pip show scikit-learn
+<br>
+Common issue (important)
+<br>
+If pip is not recognized in CMD, try:
+<br>
+python -m pip show package name (example: python -m pip show matplotlib)
+<br>
+If you want to know about, list all installed packages
+<br>
+Use command: pip list
 <br>
 5. Save Dependencies
 <br>
