@@ -5,6 +5,7 @@ Step-1: Make sure Python and pip are installed, Python in your Local computer
 Any version suggestion download 1-2 old version (https://www.python.org/downloads/)
 Just for check go through 
 
+<<<<<<< HEAD
 command: python --version or python3 --version
 
 command: pip --version
@@ -13,6 +14,17 @@ If these commands fail, you need to install Python first: (https://www.python.or
 Install pip Using ensurepip (Recommended), 
 
 command: python -m ensurepip --upgrade
+=======
+python --version or python3 --version
+
+pip --version
+
+If these commands fail, you need to install Python first: (https://www.python.org/downloads/)
+
+Install pip Using ensurepip (Recommended), 
+
+command: python -m ensurepip --upgrade
+>>>>>>> ec2a1222f2d49c6723844d6d7af4a91e51a2f811
 After that upgrade pip, 
 
 command python -m pip install --upgrade pip
