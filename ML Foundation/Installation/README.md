@@ -3,11 +3,19 @@
 
 Step-1: Make sure Python and pip are installed, Python in your Local computer
 Any version suggestion download 1-2 old version (https://www.python.org/downloads/)
-Just for check go through python --version or python3 --version
-pip --version
+Just for check go through 
+
+command: python --version or python3 --version
+
+command: pip --version
+
 If these commands fail, you need to install Python first: (https://www.python.org/downloads/)
-Install pip Using ensurepip (Recommended), command python -m ensurepip --upgrade
-After that upgrade pip, command python -m pip install --upgrade pip
+Install pip Using ensurepip (Recommended), 
+
+command: python -m ensurepip --upgrade
+After that upgrade pip, 
+
+command python -m pip install --upgrade pip
 
 Step-2: Install Jupyter Lab via pip 
 Use command pip install jupyterlab
