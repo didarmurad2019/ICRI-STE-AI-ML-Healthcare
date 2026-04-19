@@ -5,7 +5,7 @@ Step-1: Make sure Python and pip are installed, Python in your Local computer
 Any version suggestion download 1-2 old version (https://www.python.org/downloads/)
 Just for check go through 
 
-<<<<<<< HEAD
+
 command: python --version or python3 --version
 
 command: pip --version
@@ -24,21 +24,71 @@ If these commands fail, you need to install Python first: (https://www.python.or
 Install pip Using ensurepip (Recommended), 
 
 command: python -m ensurepip --upgrade
->>>>>>> ec2a1222f2d49c6723844d6d7af4a91e51a2f811
+
 After that upgrade pip, 
 
-command python -m pip install --upgrade pip
+command: python -m pip install --upgrade pip
 
-Step-2: Install Jupyter Lab via pip 
-Use command pip install jupyterlab
-On some systems you might need python3 -m pip install jupyterlab 
-(Note: if python3 not work use just python, again you have problem see upgrade your pip)
-Launch JupyterLab
-After installation, start JupyterLab with: use command jupyter lab
-This will open JupyterLab in your default web browser.
+
+Step-2:
+
+1. Initialize Project 
+
+Recommendation move from C drive to safeside drives like D or E or F 
+
+Use commad as F: 
+
+then make directory of your choice, for example my case 
+
+mkdir my_project
+
+Then change in diectory, using command as 
+
+cd my_project
+
+Then inside your project as my_project 
+
+2. Create Virtual Environment
+
+Noted. The built-in venv module is recommended for managing virtual environments with pip, which is usually included with Python installation. 
+If necessary, pip can be installed separately. 
+
+Use command: python -m venv myenv
+
+2. Activate Virtual Environment
+
+On Windows
+
+command: myenv\Scripts\activate
+
+On Linux / Mac
+
+command: source myenv/bin/activate
+
+You’ll see (myenv) in terminal = environment active
+
+
+3. Install Required Packages
+
+Use command: 
+
+pip install numpy pandas scikit-learn jupyter jupyterlab
+
+4. Save Dependencies
+
+Use command: pip freeze > requirements.txt
+
+5. Start Working (Jupyter Notebook or Jupyterlab)
+
+Use command: jupyter notebook  
+
+Use command:  jupyter lab
+
+This will open jupyter notebook or JupyterLab in your default web browser.
+
 The terminal will show a URL like http://localhost:8888/lab.
 
-# Option-II
+# Option-II (modern faster alternative)
 # Python Setup Tips
 <br>
 If You’re Using Google Colab
